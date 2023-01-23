@@ -9,7 +9,7 @@ from doce_lar import *
 from PIL import Image
 import streamlit as st
 import locale
-locale.setlocale( locale.LC_ALL, 'US' )
+locale.setlocale( locale.LC_ALL, '' )
 
 #title
 st.title('Doce Lar')
