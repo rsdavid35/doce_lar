@@ -9,7 +9,6 @@ from doce_lar import *
 from PIL import Image
 import streamlit as st
 import locale
-locale.setlocale( locale.LC_ALL, '' )
 
 #title
 st.title('Doce Lar')
@@ -40,22 +39,22 @@ dados_filtrados = filtrar_dados(input_area,
                                 int(input_banheiro))
 ind = stats_dados(dados_filtrados)
 
-col_media, col_max, col_min = st.columns(3)
+col_media, col_min, col_max = st.columns(3)
 with col_media:
     if ind['delta'] >= 0:
-        delta = "${:,.2f}".format(ind['delta']/10**6)
+        delta = "${:,.2f}".format(ind['delta'])
     else:
-        delta = "-${:,.2f}".format(abs(ind['delta']/10**6))
-    st.metric('Média de Preço (em milhões)',
-              value=locale.currency( ind['media_valor']/10**6, grouping=True ),
+        delta = "-${:,.2f}".format(abs(ind['delta']))
+    st.metric('Média de Preço',
+              value="${:,.2f}".format(ind['media_valor']),
               delta= delta)
     st.caption('Comparação com a Média Geral')
 with col_min:
-    st.metric('Menor Preço (em milhões)',
-              value=locale.currency( ind['menor_valor']/10**6, grouping=True ))
-    with col_max:
-        st.metric('Maior Preço (em milhões)',
-                  value=locale.currency( ind['maior_valor']/10**6, grouping=True ))
+    st.metric('Menor Preço',
+              value="${:,.2f}".format(ind['menor_valor']))
+with col_max:
+    st.metric('Maior Preço',
+              value="${:,.2f}".format(ind['maior_valor']))
       
 # tabela
 col_tabela, col_descricao = st.columns(2)
