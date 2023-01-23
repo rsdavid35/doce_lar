@@ -16,8 +16,8 @@ def obter_dados():
 
 def dados_input():
     range_area = (int(data['area'].min()), int(data['area'].max()))
-    arr_quarto = list(data['bedrooms'].value_counts().index).sort()
-    arr_banheiro = list(data['bathrooms'].value_counts().index).sort()
+    arr_quarto = np.sort(data['bedrooms'].value_counts().index)
+    arr_banheiro = np.sort(data['bathrooms'].value_counts().index)
     return {'range_area': range_area,
             'arr_quarto': arr_quarto,
             'arr_banheiro': arr_quarto}
