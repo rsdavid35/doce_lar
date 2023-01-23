@@ -30,9 +30,9 @@ with col_area:
                            min_value=range_area[0],
                            max_value=range_area[1],)
 with col_quarto:
-    input_quarto = st.selectbox('Número de quartos', arr_quarto)
+    input_quarto = st.selectbox('Número de quartos', options=arr_quarto)
 with col_banheiro:
-    input_banheiro =st.selectbox('Número de banheiros', arr_quarto)
+    input_banheiro =st.selectbox('Número de banheiros', options=arr_quarto)
     
 # indicadores
 dados_filtrados = filtrar_dados(input_area,
